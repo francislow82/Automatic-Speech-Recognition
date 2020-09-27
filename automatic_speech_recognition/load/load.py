@@ -36,10 +36,10 @@ def load_deepspeech2_en(weights_path: str) -> pipeline.CTCPipeline:
     alphabet_en = text.Alphabet(lang='en')
     spectrogram = features.Spectrogram(
         features_num=160,
-        samplerate=16000,
+        sample_rate=16000,
         winlen=0.02,
         winstep=0.01,
-        winfunc=np.hanning
+        window=np.hanning
     )
     greedy_decoder = decoder.GreedyDecoder()
     ctc_pipeline = pipeline.CTCPipeline(
